@@ -5,7 +5,8 @@ pipeline {
 
         stage('Checkout') {
             steps {
-                git 'https://github.com/sgayatrijadhav-hub/mavenSrc.git'
+                git branch: 'main',
+                    url: 'https://github.com/sgayatrijadhav-hub/mavenSrc.git'
             }
         }
 
