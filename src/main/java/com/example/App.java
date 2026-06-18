@@ -3,15 +3,20 @@ package com.example;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 
 public class App {
 
     public static void main(String[] args) {
 
-        WebDriver driver = new ChromeDriver();
+        ChromeOptions options = new ChromeOptions();
+        options.addArguments("--headless=new");
+        options.addArguments("--no-sandbox");
+        options.addArguments("--disable-dev-shm-usage");
+
+        WebDriver driver = new ChromeDriver(options);
 
         driver.get("https://www.saucedemo.com");
-
         driver.manage().window().maximize();
 
         driver.findElement(By.id("user-name"))
@@ -24,5 +29,7 @@ public class App {
               .click();
 
         System.out.println("Login successful");
+
+        driver.quit();
     }
 }
