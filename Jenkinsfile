@@ -5,7 +5,7 @@ pipeline {
 
         stage('Checkout') {
             steps {
-                git 'https://github.com/<username>/MYselenium.git'
+                git 'https://github.com/sgayatrijadhav-hub/mavenSrc.git'
             }
         }
 
@@ -30,6 +30,12 @@ pipeline {
         stage('Package') {
             steps {
                 sh 'mvn package'
+            }
+        }
+
+        stage('Run Selenium') {
+            steps {
+                sh 'mvn exec:java -Dexec.mainClass="com.example.App"'
             }
         }
     }
