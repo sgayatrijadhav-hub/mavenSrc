@@ -36,7 +36,7 @@ pipeline {
 
        stage('Run') {
     steps {
-        echo 'Running Selenium Application'
+        
         echo 'https://www.saucedemo.com'
     }
 }
